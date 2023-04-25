@@ -6,7 +6,7 @@ from pykrige import UniversalKriging
 
 import numpy as np
 
-from utils import read_mesh_centers, read_speed_vector_field, read_pressure_field
+from utils import read_mesh_centers, read_speed_vector_field, read_pressure_field, read_final_simulation
 
 path_to_data = '/Users/kostyansa/openfoam/data/hig_dim'
 simulation_name = 'vel2'
@@ -15,9 +15,7 @@ saveOutput = 1
 
 simulation = os.path.join(path_to_data, simulation_name)
 
-C_high = read_mesh_centers(simulation)
-U_high = read_speed_vector_field(simulation)
-p_high = read_pressure_field(simulation)
+C_high, U_high, p_high = read_final_simulation(simulation)
 
 vmin = np.nanmin(p_high)
 vmax = np.nanmax(p_high)
@@ -39,9 +37,7 @@ simulation_name = 'vel1'
 
 simulation = os.path.join(path_to_data, simulation_name)
 
-C_low = read_mesh_centers(simulation)
-U_low = read_speed_vector_field(simulation)
-p_low = read_pressure_field(simulation)
+C_low, U_low, p_low = read_final_simulation(simulation)
 
 krieg = UniversalKriging(C_low[:, 0], C_low[:, 1], p_low, variogram_model='spherical')
 
