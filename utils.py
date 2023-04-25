@@ -2,14 +2,13 @@ import os
 from typing import Union
 import numpy as np
 
-import matplotlib.pyplot as plt
-from matplotlib.collections import LineCollection
-
 import openfoamparser_mai as Ofpp
 
-from scipy.interpolate import griddata
 
 PathLike = Union[str, os.PathLike]
+
+LOW_DIM = 'low_dim'
+HIGH_DIM = 'high_dim'
 
 
 def max_timestep(simulation: PathLike) -> PathLike:
@@ -37,24 +36,18 @@ def read_pressure_field(simulation: PathLike):
     return p
 
 
-path_to_data = './data/hig_dim'
-simulation_name = 'vel1'
-saveOutput = 1
+def read_simulation(simulation: PathLike):
+    C = read_mesh_centers(simulation)
+    U = read_speed_vector_field(simulation)
+    p = read_pressure_field(simulation)
+    return C, U, p
 
 
-simulation = os.path.join(path_to_data, simulation_name)
+def read_geometry(path_to_geometry: PathLike):
+    low_dim_path = os.path.join(path_to_geometry, LOW_DIM)
+    high_dim_path = os.path.join(path_to_geometry, HIGH_DIM)
 
-C = read_mesh_centers(simulation)
-U = read_speed_vector_field(simulation)
-p = read_pressure_field(simulation)
+    low_dim = np.array(list(map(read_simulation, map(lambda x: os.path.join(path_to_geometry, x), os.listdir(low_dim_path)))))
+    high_dim = np.array(list(map(read_simulation, map(lambda x: os.path.join(path_to_geometry, x), os.listdir(high_dim_path)))))
 
-fig, ax = plt.subplots()
-ax.quiver(C[:, 0], C[:, 1], U[:, 0], U[:, 1])
-
-# Add labels and title
-ax.set_xlabel("X")
-ax.set_ylabel("Y")
-ax.set_title("Velocity Vector Field (U)")
-
-# Display the plot
-plt.savefig(f"high_field.png")
+    return low_dim, high_dim
