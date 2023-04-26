@@ -2,6 +2,7 @@ import os
 
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
+from scipy.interpolate import CloughTocher2DInterpolator
 from pykrige import UniversalKriging
 
 import numpy as np
@@ -39,7 +40,7 @@ simulation = os.path.join(path_to_data, simulation_name)
 
 C_low, U_low, p_low = read_final_simulation(simulation)
 
-krieg = UniversalKriging(C_low[:, 0], C_low[:, 1], p_low, variogram_model='spherical')
+krieg = UniversalKriging(C_low[:, 0], C_low[:, 1], p_low, variogram_model='linear')
 
 z, _ = krieg.execute(style='points', xpoints=C_high[:, 0], ypoints=C_high[:, 1])
 
