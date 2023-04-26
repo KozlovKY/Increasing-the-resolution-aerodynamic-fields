@@ -6,6 +6,8 @@
 
 *Nikita Matveev, Ivan Goncharov, Kirill Kozlov, Konstantin Novozhilov*
 
+Presentation : https://docs.google.com/presentation/d/18IgPd5W_ApYReopJNU5rFgRMgtnuzaSjgKBh24wzz3Q/edit#slide=id.p
+
 
 ## Abstract 
   В данном задании нам предлагалось поработать над созданием архитектуры для повышения разрешения поля скоростей и давления для дозвуковых течений. Мы пытались добиться хорошего результата с помощью CNN, Diffusion, модели интерполяции. Ниже изложены наши результаты
