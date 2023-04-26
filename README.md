@@ -16,7 +16,7 @@ Dataset : https://drive.google.com/drive/folders/1oHYiSw6B5u-nK9LRpMCWqft3ucC8Mm
 
 В ветке CNN_autoEncoder предложен вариант решения с помощью сверточных нейронных сетей, мы использовали часть кода, а также некоторые идеи из статьи и репозитория, выложенных ниже.
 
-# CNN:
+# CNN (AutoEncoder):
 
 - https://arxiv.org/pdf/2011.02364.pdf
 - https://github.com/Jianxun-Wang/PICNNSR/tree/main/demo0
