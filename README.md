@@ -28,9 +28,8 @@ Dataset : https://drive.google.com/drive/folders/1oHYiSw6B5u-nK9LRpMCWqft3ucC8Mm
 
 <img src="Loss_diff.jpg" width="400" height="250">
 
-# Perseptron 
-В Ветке perseptron выложен вариант с моделью perseptron
-
+# Interpolation 
+В файле interpolation.py представлен пример проведения интерполяции на одном кейсе симуляции для получения бейслайна.
 <img src="interpol.png" width="500" height="300">
 
 # KNN
