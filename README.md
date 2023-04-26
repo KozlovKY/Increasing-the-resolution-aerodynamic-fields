@@ -30,3 +30,6 @@ Dataset : https://drive.google.com/drive/folders/1oHYiSw6B5u-nK9LRpMCWqft3ucC8Mm
 <img src="Loss_diff.jpg" width="400" height="250">
 # Perseptron 
 В Ветке perseptron выложен вариант с моделью perseptron
+<img src="inter.png" width="400" height="250">
+# KNN
+<img src="perseptron.png" width="400" height="250">
