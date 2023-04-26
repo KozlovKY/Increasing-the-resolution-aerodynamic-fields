@@ -37,15 +37,13 @@ print(predicted_p)
 
 fig, axes = plt.subplots(2, 2, squeeze=False)
 original_ax = axes[0, 0]
-triangulation = tri.Triangulation(C_high[:, 0], C_high[:, 1])
-
-original_ax.tricontour(triangulation, p_high, levels=14, linewidths=0.5, colors='k')
+original_ax.scatter(C_high[:, 0], C_high[:, 1], c=p_high/np.max(p_high))
 
 predicted_ax = axes[0, 1]
-predicted_ax.tricontour(triangulation, predicted_p, levels=14, linewidths=0.5, colors='k')
+predicted_ax.scatter(C_high[:, 0], C_high[:, 1], c=predicted_p/np.max(p_high))
 
 original_ax_u = axes[1, 0]
-original_ax_u.quiver(C_high[:, 0], C_high[:, 1], U_high[:, 0], U_high[:, 1])
+original_ax_u.scatter(C_high[:, 0], C_high[:, 1], c=np.sqrt(np.square(U_high[:, 0]) + np.square(U_high[:, 1]))/np.sqrt(np.square(np.max(U_high[:, 0])) + np.square(np.max(U_high[:, 1]))), marker='.')
 
 # Add labels and title
 original_ax_u.set_xlabel("X")
@@ -53,7 +51,7 @@ original_ax_u.set_ylabel("Y")
 original_ax_u.set_title("Original Velocity Vector Field (U)")
 
 predicted_ax_u = axes[1, 1]
-predicted_ax_u.quiver(C_high[:, 0], C_high[:, 1], predicted_u_x, predicted_u_y)
+predicted_ax_u.scatter(C_high[:, 0], C_high[:, 1], c=np.sqrt(np.square(predicted_u_x) + np.square(predicted_u_y))/np.sqrt(np.square(np.max(U_high[:, 0])) + np.square(np.max(U_high[:, 1]))), marker='.')
 
 # Add labels and title
 predicted_ax_u.set_xlabel("X")
