@@ -96,4 +96,4 @@ predicted_ax_u.set_ylabel("Y")
 predicted_ax_u.set_title("Predicted Velocity Vector Field (U)")
 
 # Display the plot
-plt.savefig(f"high_field.png")
+plt.savefig(f"tests.png")

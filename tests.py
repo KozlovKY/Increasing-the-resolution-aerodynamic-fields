@@ -29,7 +29,7 @@ for simulation in os.listdir(path_to_low):
 
     C_low, U_low, p_low = read_final_simulation(simulation_low)
 
-    k_n = NearestNeighbors(n_neighbors=6)
+    k_n = NearestNeighbors(n_neighbors=number_of_neighbours)
     k_n.fit(C_low)
 
     simulation_high = os.path.join(path_to_high, simulation)
@@ -62,10 +62,10 @@ target = np.array(target)
 import tensorflow as tf
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(96, activation='tanh', input_shape=(len(columns),)),
-    tf.keras.layers.Dense(96, activation='tanh'),
-    tf.keras.layers.Dense(96, activation='tanh'),
-    tf.keras.layers.Dense(32, activation='tanh'),
+    tf.keras.layers.Dense(96, activation='linear', input_shape=(len(columns),)),
+    tf.keras.layers.Dense(96, activation='linear'),
+    tf.keras.layers.Dense(96, activation='linear'),
+    tf.keras.layers.Dense(32, activation='linear'),
     tf.keras.layers.Dense(3, activation='linear')
 ])
 
@@ -98,7 +98,7 @@ model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     save_best_only=True)
 
 
-history = model.fit(df, target, validation_split=0.33, epochs=200, batch_size=512, callbacks=[model_checkpoint_callback])
+history = model.fit(df, target, validation_split=0.33, epochs=200, batch_size=128, callbacks=[model_checkpoint_callback])
 
 simulation = 'vel1'
 
@@ -108,7 +108,7 @@ simulation_high = os.path.join(path_to_high, simulation)
 
 C_low, U_low, p_low = read_final_simulation(simulation_low)
 
-k_n = NearestNeighbors(n_neighbors=6)
+k_n = NearestNeighbors(n_neighbors=number_of_neighbours)
 k_n.fit(C_low)
 
 C_high, U_high, p_high = read_final_simulation(simulation_high)
