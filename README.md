@@ -30,6 +30,7 @@ Dataset : https://drive.google.com/drive/folders/1oHYiSw6B5u-nK9LRpMCWqft3ucC8Mm
 
 # Interpolation 
 В файле interpolation.py представлен пример проведения интерполяции на одном кейсе симуляции для получения бейслайна.
+
 <img src="interpol.png" width="500" height="300">
 
 # KNN
