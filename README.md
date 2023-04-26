@@ -7,8 +7,8 @@
 *Nikita Matveev, Ivan Goncharov, Kirill Kozlov, Konstantin Novozhilov*
 
 
-Abstract 
-В данном задании нам предлагалось поработать с векто
+## Abstract 
+  В данном задании нам предлагалось поработать над созданием архитектуры для повышения разрешения поля скоростей и давления для дозвуковых течений. Мы пытались добиться хорошего результата с помощью CNN, Diffusion, модели интерполяции. Ниже изложены наши результаты
 
 
 
@@ -21,7 +21,7 @@ Dataset : https://drive.google.com/drive/folders/1oHYiSw6B5u-nK9LRpMCWqft3ucC8Mm
 - https://arxiv.org/pdf/2011.02364.pdf
 - https://github.com/Jianxun-Wang/PICNNSR/tree/main/demo0
 
-<img src="" width="250" height="250">
+<img src="Loss_diff" width="250" height="250">
 
 # AnisotropicDiffusion
 В Ветке Kirill выложен код для имплементации  AnisotropicDiffusion для одной картинки
