@@ -6,6 +6,7 @@
 
 *Nikita Matveev, Ivan Goncharov, Kirill Kozlov, Konstantin Novozhilov*
 
+Cite : https://cogmodel.mipt.ru/iprofihack
 Presentation : https://docs.google.com/presentation/d/18IgPd5W_ApYReopJNU5rFgRMgtnuzaSjgKBh24wzz3Q/edit#slide=id.p
 
 
